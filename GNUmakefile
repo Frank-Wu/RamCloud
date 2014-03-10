@@ -23,8 +23,8 @@ OBJDIR	:= obj$(OBJSUFFIX)
 
 TOP	:= $(shell echo $${PWD-`pwd`})
 GTEST_DIR ?= $(TOP)/gtest
-ZOOKEEPER_LIB := /usr/local/lib/libzookeeper_mt.a
-ZOOKEEPER_DIR := /usr/local/zookeeper-3.4.5
+ZOOKEEPER_LIB := /home/y/yingjun/zookeeper/lib/libzookeeper_mt.a
+ZOOKEEPER_DIR := /home/y/yingjun/zookeeper
 
 ifeq ($(DEBUG),yes)
 BASECFLAGS := -g
@@ -60,8 +60,7 @@ endif
 # -Wunreachable-code
 # Failed deconstructor inlines are generating noise
 # -Winline
-
-LIBS := $(EXTRALIBS) $(ZOOKEEPER_LIB) -lpcrecpp -lboost_program_options \
+LIBS := $(EXTRALIBS) $(ZOOKEEPER_LIB) -L/home/y/yingjun/boost/lib -lpcrecpp -lboost_program_options \
 	-lprotobuf -lrt -lboost_filesystem -lboost_system \
 	-lpthread -lssl -lcrypto
 ifeq ($(DEBUG),yes)

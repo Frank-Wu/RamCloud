@@ -13,6 +13,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <getopt.h>
@@ -227,6 +228,8 @@ try
     if (locator.size() == 0) {
         locator = optionParser.options.getCoordinatorLocator();
     }
+	std::cout<<"service locator="<<optionParser.options.getCoordinatorLocator()<<std::endl;
+	std::cout<<"cluster name="<<optionParser.options.getClusterName()<<std::endl;
     RamCloud client(&context, locator.c_str(),
             optionParser.options.getClusterName().c_str());
 
@@ -241,6 +244,7 @@ try
     client.createTable("test");
     uint64_t table;
     table = client.getTableId("test");
+	std::cout<<"table id="<<table<<std::endl;
     LOG(NOTICE, "create+open table took %lu ticks", Cycles::rdtsc() - b);
 
     b = Cycles::rdtsc();
