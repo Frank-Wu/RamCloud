@@ -18,4 +18,4 @@
  ./obj.master/client
 
  
- compile a client app: g++ -Lobj.master -lramcloud -Isrc -Iobj.master -o myClient myClient.cc
+ compile a client app: g++ -Lobj.master -lramcloud -Isrc -Iobj.master -o myClient myClient.cc -std=c++11
