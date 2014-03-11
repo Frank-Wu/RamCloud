@@ -16,4 +16,6 @@
  
  3. starting a example client
  ./obj.master/client
+
  
+ compile a client app: g++ -Lobj.master -lramcloud -Isrc -Iobj.master -o myClient myClient.cc
