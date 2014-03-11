@@ -6,3 +6,14 @@
   https://ramcloud.stanford.edu/wiki/display/ramcloud
 
  */
+
+ Shortcut to boot the system locally:
+ 1. starting a coordinator
+ ./obj.master/coordinator
+
+ 2. starting a server
+ ./obj.master/server -M -r 0
+ 
+ 3. starting a example client
+ ./obj.master/client
+ 
