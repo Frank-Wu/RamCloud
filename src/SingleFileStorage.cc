@@ -796,8 +796,10 @@ SingleFileStorage::SingleFileStorage(size_t segmentSize,
     if (filePath == NULL || filePath[0] == '\0') {
         tempFilePath =
             strdup("/tmp/ramcloud-backup-storage-test-delete-this-XXXXXX");
-        fd = ::mkostemp(tempFilePath,
-                        O_CREAT | O_RDWR | openFlags);
+        //**seems that centos does not have mkostemp function. substitute it with mkstemp.**
+		//fd = ::mkostemp(tempFilePath,
+        //                O_CREAT | O_RDWR | openFlags);
+		fd = ::mkstemp(tempFilePath);
         filePath = tempFilePath;
     } else {
         // If we were given /dev/null (to take disk bandwidth out of the

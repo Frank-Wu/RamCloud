@@ -222,6 +222,7 @@ class RAMCloud(object):
             so.rc_disconnect(self.client)
 
     def handle_error(self, status, actual_version=0):
+        print "status=", status
         if status == 0:
             return
         if status == 2:
@@ -365,7 +366,7 @@ def main():
     r = RAMCloud()
     r.connect()
     print "Client: 0x%x" % r.client.value
-    r.ping()
+ #   r.ping()
 
     r.create_table("test")
     print "Created table 'test'",
